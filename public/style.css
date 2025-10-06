@@ -261,7 +261,7 @@ body {
 }
 
 .cart-items {
-    max-height: 200px;
+    max-height: 150px;
     overflow-y: auto;
     margin-bottom: 15px;
 }
@@ -370,11 +370,6 @@ body {
     color: white;
 }
 
-.card-btn {
-    background: linear-gradient(135deg, #3498db, #2980b9);
-    color: white;
-}
-
 .qr-btn {
     background: linear-gradient(135deg, #9b59b6, #8e44ad);
     color: white;
@@ -390,6 +385,8 @@ body {
     padding: 15px;
     border-radius: 10px;
     margin-top: 15px;
+    max-height: 250px;
+    overflow-y: auto;
 }
 
 .cash-input h5 {
@@ -549,6 +546,65 @@ body {
     transform: translateY(-2px);
 }
 
+/* QR Code */
+.qr-image {
+    width: 320px;
+    height: 420px;
+    margin: 16px auto;
+    display: block;
+    object-fit: contain;
+    background: #fff;
+    padding: 8px;
+    border-radius: 12px;
+}
+
+.qr-modal-btn {
+    width: 90%;
+    max-width: 260px;
+    margin: 8px auto 0 auto;
+    display: block;
+    padding: 14px 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.qr-modal-btn.confirm {
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    color: #fff;
+}
+
+.qr-modal-btn.confirm:hover {
+    background: linear-gradient(135deg, #2980b9, #3498db);
+}
+
+.qr-modal-btn.close {
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+    color: #ffffff;
+}
+
+.qr-modal-btn.close:hover {
+    background: linear-gradient(135deg, #c0392b, #a93226);
+}
+
+#qr-modal .modal-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
+    width: 420px;
+    margin: 5vh auto;
+}
+
+#qr-modal h3 {
+    text-align: center;
+    width: 100%;
+}
+
 @media (max-width: 1200px) {
     .main-content {
         grid-template-columns: 200px 1fr 300px;
@@ -581,11 +637,6 @@ body {
 @media (max-width: 600px) {
     .header h1 {
         font-size: 1.8rem;
-    }
-    
-    .admin-btn {
-        padding: 8px 15px;
-        font-size: 0.9rem;
     }
     
     .products-grid {

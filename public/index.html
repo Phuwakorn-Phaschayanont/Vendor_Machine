@@ -111,6 +111,16 @@
         </div>
     </div>
 
+    <!-- Modal QR Code -->
+    <div id="qr-modal" class="modal">
+        <div class="modal-content">
+            <h3><i class="fas fa-qrcode"></i> ชำระเงินด้วย QR Code</h3>
+            <img id="qr-image" src="/images/qr_code.jpg" alt="QR Code" class="qr-image">
+            <button onclick="handleQRConfirm()" class="qr-modal-btn confirm">ยืนยันการชำระเงิน</button>
+            <button onclick="closeQRModal()" class="qr-modal-btn close">ยกเลิก</button>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>

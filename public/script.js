@@ -14,32 +14,32 @@ class VendingMachine {
         if (!localStorage.getItem('vendingProducts')) {
             const initialProducts = [
                 // โดนัท
-                { id: 1, name: 'โดนัทไส้คัสตาร์ดช็อกโกแลต', price: 25, stock: 15, category: 'donut', image: '/images/Nolayer_Donut-Cake-Chocolate_2022.png' },
+                { id: 1, name: 'โดนัทไส้คัสตาร์ดช็อกโกแลต', price: 25, stock: 25, category: 'donut', image: '/images/Nolayer_Donut-Cake-Chocolate_2022.png' },
                 { id: 2, name: 'โดนัทไส้สังขยา', price: 25, stock: 12, category: 'donut', image: '/images/Nolayer_Donut-Cake-ThaiCustard_2022.png' },
                 { id: 3, name: 'โดนัทไส้คัสตาร์ดวานิลลา', price: 20, stock: 18, category: 'donut', image: '/images/Nolayer_Donut-Vanilla_2022.png' },
                 
                 // โดรายากิ
-                { id: 4, name: 'โดรายากิไส้ช็อกโกแลต', price: 35, stock: 10, category: 'dorayaki', image: '/images/Nolayer_edit_Dorayaki_Chocolate_2021.png' },
+                { id: 4, name: 'โดรายากิไส้ช็อกโกแลต', price: 35, stock: 20, category: 'dorayaki', image: '/images/Nolayer_edit_Dorayaki_Chocolate_2021.png' },
                 { id: 5, name: 'โดรายากิไส้ครีมช็อกโกแลตชิพ', price: 40, stock: 8, category: 'dorayaki', image: '/images/Nolayer_edit_Dorayaki_ChocolateChipCream_2021.png' },
                 { id: 6, name: 'โดรายากิไส้คัสตาร์ดครีม', price: 35, stock: 12, category: 'dorayaki', image: '/images/Nolayer_edit_Dorayaki_Cream-Custard_2022.png' },
-                { id: 7, name: 'โดรายากิไส้ครีมอัลมอนด์', price: 45, stock: 6, category: 'dorayaki', image: '/images/Nolayer_edit_Dorayaki_Creamy-Almond_2021.png' },
+                { id: 7, name: 'โดรายากิไส้ครีมอัลมอนด์', price: 45, stock: 16, category: 'dorayaki', image: '/images/Nolayer_edit_Dorayaki_Creamy-Almond_2021.png' },
 
                 // ขนมปังไส้
-                { id: 8, name: 'ขนมปังไส้งาดำถั่วแดง', price: 30, stock: 14, category: 'filled', image: '/images/Nolayar_2021_RedbeanBlacksesameFilled.png' },
-                { id: 9, name: 'ขนมปังไส้ถั่วดำ', price: 25, stock: 16, category: 'filled', image: '/images/Nolayer_2021_BlackbeanFilled.png' },
+                { id: 8, name: 'ขนมปังไส้งาดำถั่วแดง', price: 30, stock: 34, category: 'filled', image: '/images/Nolayar_2021_RedbeanBlacksesameFilled.png' },
+                { id: 9, name: 'ขนมปังไส้ถั่วดำ', price: 25, stock: 26, category: 'filled', image: '/images/Nolayer_2021_BlackbeanFilled.png' },
                 { id: 10, name: 'ขนมปังไส้คัสตาร์ดช็อกโกแลต', price: 35, stock: 11, category: 'filled', image: '/images/Nolayer_2021_ChocolateFilled.png' },
                 { id: 11, name: 'ขนมปังไส้สังขยามะพร้าว', price: 30, stock: 13, category: 'filled', image: '/images/Nolayer_2021_CoconutPandanFilled.png' },
-                { id: 12, name: 'ขนมปังไส้เผือกมะพร้าว', price: 30, stock: 9, category: 'filled', image: '/images/Nolayer_2021_CoconutTaroFilled.png' },
-                { id: 13, name: 'ขนมปังไส้ถั่วแดง', price: 25, stock: 17, category: 'filled', image: '/images/Nolayer_2021_RedbeanFilled.png' },
-                { id: 14, name: 'ขนมปังไส้ลูกบัวถั่วแดง', price: 35, stock: 7, category: 'filled', image: '/images/Nolayer_2021_RedbeanLotusSeedFilled.png' },
-                { id: 15, name: 'ขนมปังไส้เผือก', price: 30, stock: 12, category: 'filled', image: '/images/Nolayer_2021_TaroFilled.png' },
+                { id: 12, name: 'ขนมปังไส้เผือกมะพร้าว', price: 30, stock: 49, category: 'filled', image: '/images/Nolayer_2021_CoconutTaroFilled.png' },
+                { id: 13, name: 'ขนมปังไส้ถั่วแดง', price: 25, stock: 37, category: 'filled', image: '/images/Nolayer_2021_RedbeanFilled.png' },
+                { id: 14, name: 'ขนมปังไส้ลูกบัวถั่วแดง', price: 35, stock: 50, category: 'filled', image: '/images/Nolayer_2021_RedbeanLotusSeedFilled.png' },
+                { id: 15, name: 'ขนมปังไส้เผือก', price: 30, stock: 32, category: 'filled', image: '/images/Nolayer_2021_TaroFilled.png' },
                 { id: 16, name: 'ขนมปังไส้สังขยา', price: 35, stock: 10, category: 'filled', image: '/images/Nolayer_2021_ThaicustardFilled.png' },
                 
                 // แซนด์วิช
-                { id: 17, name: 'แซนด์วิชปูอัดมายองเนส', price: 45, stock: 8, category: 'sandwich', image: '/images/Nolayer_2024_Crabstick_Sandwich.png' },
+                { id: 17, name: 'แซนด์วิชปูอัดมายองเนส', price: 45, stock: 18, category: 'sandwich', image: '/images/Nolayer_2024_Crabstick_Sandwich.png' },
                 { id: 18, name: 'แซนด์วิชหมูหยองมายองเนส', price: 40, stock: 12, category: 'sandwich', image: '/images/Nolayer_2024_Pork_Mayonnaise.png' },
                 { id: 19, name: 'แซนด์วิชไก่หยองน้ำพริกเผา', price: 45, stock: 9, category: 'sandwich', image: '/images/Nolayer_2024_Shreded_chicken_chili.png' },
-                { id: 20, name: 'แซนด์วิชทูน่ามายองเนส', price: 40, stock: 11, category: 'sandwich', image: '/images/Nolayer_2024_Tuna_Mayonnaise.png' }
+                { id: 20, name: 'แซนด์วิชทูน่ามายองเนส', price: 40, stock: 21, category: 'sandwich', image: '/images/Nolayer_2024_Tuna_Mayonnaise.png' }
             ];
             localStorage.setItem('vendingProducts', JSON.stringify(initialProducts));
         }
@@ -288,10 +288,9 @@ class VendingMachine {
     
     payWithQR() {
         if (this.cart.length === 0) return;
-        
         this.selectedPaymentMethod = 'qr';
-        // แสดงอินพุต QR Code
-        this.showQRPaymentDialog();
+        // แสดง modal QR code
+        document.getElementById('qr-modal').style.display = 'block';
     }
     
     addMoney(amount) {
@@ -357,8 +356,8 @@ class VendingMachine {
         // อัพเดตการแสดงผล
         this.updateCartDisplay();
         this.updateInsertedMoneyDisplay();
-        
-        // แสดงโมดัลความสำเร็จ
+
+        // แสดง Modal ความสำเร็จ
         this.showSuccessModal(change);
         
         // จำลองการจ่ายสินค้า
@@ -439,28 +438,42 @@ class VendingMachine {
     }
 }
 
+// กดปุ่มชำระเงินด้วยเงินสด
 function payWithCash() {
     vendingMachine.payWithCash();
 }
 
-function payWithCard() {
-    vendingMachine.payWithCard();
-}
-
+// กดปุ่มชำระเงินด้วย QR Code
 function payWithQR() {
     vendingMachine.payWithQR();
 }
 
+// กดปุ่มเพิ่มเงิน
 function addMoney(amount) {
     vendingMachine.addMoney(amount);
 }
 
+// กดปุ่มยืนยันการชำระเงิน
 function confirmPayment() {
     vendingMachine.confirmPayment();
 }
 
+// ปิด modal 
 function closeModal() {
     vendingMachine.hideSuccessModal();
+}
+
+// ปิด modal QR
+function closeQRModal() {
+    document.getElementById('qr-modal').style.display = 'none';
+}
+
+// เมื่อกดปุ่มยืนยัน QR
+function handleQRConfirm() {
+    closeQRModal();
+    setTimeout(() => {
+        vendingMachine.processPayment(0);
+    }, 500);
 }
 
 const style = document.createElement('style');
@@ -476,22 +489,19 @@ document.head.appendChild(style);
 let vendingMachine;
 document.addEventListener('DOMContentLoaded', () => {
     vendingMachine = new VendingMachine();
+    vendingMachine.loadPendingItems();
+    document.getElementById('dispensing-slot').addEventListener('click', () => vendingMachine.showDispenseModal());
+    document.getElementById('dispensing-slot').addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') vendingMachine.showDispenseModal();
+    });
+    // bind ปุ่มยืนยัน QR
+    const qrBtn = document.getElementById('qr-confirm-btn');
+    if(qrBtn) qrBtn.onclick = handleQRConfirm;
 });
 
+// ปิด modal ด้วยปุ่ม Esc
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
         vendingMachine.hideSuccessModal();
     }
 });
-
-if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js')
-            .then(registration => {
-                console.log('SW registered: ', registration);
-            })
-            .catch(registrationError => {
-                console.log('SW registration failed: ', registrationError);
-            });
-    });
-}
