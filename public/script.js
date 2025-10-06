@@ -4,6 +4,7 @@ class VendingMachine {
         this.insertedMoney = 0;
         this.selectedPaymentMethod = null;
         this.currentCategory = 'all';
+        this.pendingItems = [];
         
         this.initializeData();
         this.init();
@@ -345,6 +346,14 @@ class VendingMachine {
         // บันทึกประวัติการขาย
         this.saveSaleRecord(change);
         
+        // เพิ่มสินค้าไปยัง pendingItems (รอรับ)
+        this.cart.forEach(item => {
+            for (let i = 0; i < item.quantity; i++) {
+                this.pendingItems.push({ ...item });
+            }
+        });
+        this.savePendingItems();
+        
         // รีเซ็ตตะกร้าและการชำระเงิน
         this.cart = [];
         this.insertedMoney = 0;
@@ -362,6 +371,39 @@ class VendingMachine {
         
         // จำลองการจ่ายสินค้า
         this.simulateDispensing();
+    }
+    
+    savePendingItems() {
+        localStorage.setItem('pendingItems', JSON.stringify(this.pendingItems));
+    }
+    
+    loadPendingItems() {
+        this.pendingItems = JSON.parse(localStorage.getItem('pendingItems') || '[]');
+    }
+    
+    showDispenseModal() {
+        this.loadPendingItems();
+        const modal = document.getElementById('dispense-modal');
+        const itemsDiv = document.getElementById('dispense-items');
+        if (this.pendingItems.length === 0) {
+            itemsDiv.innerHTML = '<p>ไม่มีสินค้ารอรับ</p>';
+        } else {
+            itemsDiv.innerHTML = this.pendingItems.map((item, idx) => `
+                <div class="dispense-item">
+                    <img src="${item.image}" alt="${item.name}" style="width:50px;height:50px;object-fit:cover;margin-right:10px;vertical-align:middle;">
+                    <span>${item.name}</span>
+                    <button onclick="receiveItem(${idx})">รับสินค้า</button>
+                </div>
+            `).join('');
+        }
+        modal.style.display = 'block';
+    }
+    
+    receiveItem(idx) {
+        this.loadPendingItems();
+        this.pendingItems.splice(idx, 1);
+        this.savePendingItems();
+        this.showDispenseModal();
     }
     
     updateStock() {
@@ -474,6 +516,16 @@ function handleQRConfirm() {
     setTimeout(() => {
         vendingMachine.processPayment(0);
     }, 500);
+}
+
+// ฟังก์ชันปิด modal รับสินค้า
+function closeDispenseModal() {
+    document.getElementById('dispense-modal').style.display = 'none';
+}
+
+// ฟังก์ชันรับสินค้าแต่ละชิ้น
+function receiveItem(idx) {
+    vendingMachine.receiveItem(idx);
 }
 
 const style = document.createElement('style');

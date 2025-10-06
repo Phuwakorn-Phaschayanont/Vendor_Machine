@@ -92,7 +92,7 @@
 
         <!-- ช่องรับสินค้า -->
         <div class="dispensing-area">
-            <div class="dispensing-slot">
+            <div class="dispensing-slot" id="dispensing-slot">
                 <div class="slot-light"></div>
                 <div class="slot-door">
                     <span>รับสินค้าที่นี่</span>
@@ -111,13 +111,22 @@
         </div>
     </div>
 
-    <!-- Modal QR Code -->
+    <!-- แสดง QR Code -->
     <div id="qr-modal" class="modal">
         <div class="modal-content">
             <h3><i class="fas fa-qrcode"></i> ชำระเงินด้วย QR Code</h3>
             <img id="qr-image" src="/images/qr_code.jpg" alt="QR Code" class="qr-image">
             <button onclick="handleQRConfirm()" class="qr-modal-btn confirm">ยืนยันการชำระเงิน</button>
             <button onclick="closeQRModal()" class="qr-modal-btn close">ยกเลิก</button>
+        </div>
+    </div>
+
+    <!-- แสดงสินค้ารอรับ -->
+    <div id="dispense-modal" class="modal">
+        <div class="modal-content">
+            <h3><i class="fas fa-box-open"></i> สินค้ารอรับ</h3>
+            <div id="dispense-items"></div>
+            <button onclick="closeDispenseModal()" class="qr-modal-btn close">ปิด</button>
         </div>
     </div>
 
