@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🍞 Bread Vending Machine</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="vending-machine">
+        <div class="header">
+            <h1><i class="fas fa-bread-slice"></i> เครื่องขายขนมปังอัตโนมัติ</h1>
+        </div>
+
+        <div class="main-content">
+            <!-- ช่องหมวดหมู่สินค้า -->
+            <div class="category-panel">
+                <h3><i class="fas fa-th-large"></i> หมวดหมู่สินค้า</h3>
+                <div id="categories" class="categories">
+                    <!-- หมวดหมู่สินค้าจะถูกโหลด -->
+                </div>
+            </div>
+
+            <!-- รายการสินค้าทั้งหมด -->
+            <div class="product-panel">
+                <div class="panel-header">
+                    <h3 id="current-category">สินค้าทั้งหมด</h3>
+                    <div class="search-box">
+                        <input type="text" id="search" placeholder="ค้นหาสินค้า..." />
+                        <i class="fas fa-search"></i>
+                    </div>
+                </div>
+                <div id="products" class="products-grid">
+                    <!-- รายการสินค้าจะถูกโหลด -->
+                </div>
+            </div>
+
+            <!-- ช่องรถเข็นและสินค้าในรถเข็น -->
+            <div class="payment-panel">
+                <div class="cart-section">
+                    <h3><i class="fas fa-shopping-cart"></i> รถเข็น</h3>
+                    <div id="cart-items" class="cart-items">
+                        <div class="empty-cart">
+                            <i class="fas fa-shopping-cart"></i>
+                            <p>ยังไม่มีสินค้าในรถเข็น</p>
+                        </div>
+                    </div>
+                    <div class="cart-total">
+                        <div class="total-amount">
+                            <span>รวมทั้งหมด :</span>
+                            <span id="total-amount">0 ฿</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ช่องการชำระเงิน -->
+                <div class="payment-section">
+                    <h4><i class="fas fa-credit-card"></i> ชำระเงิน</h4>
+                    <div class="payment-methods">
+                        <button class="payment-btn cash-btn" onclick="payWithCash()">
+                            <i class="fas fa-money-bill-wave"></i>
+                            เงินสด
+                        </button>
+                        <button class="payment-btn qr-btn" onclick="payWithQR()">
+                            <i class="fas fa-qrcode"></i>
+                            QR Code
+                        </button>
+                    </div>
+                    
+                    <div id="cash-input" class="cash-input" style="display: none;">
+                        <h5>ใส่เงินสด</h5>
+                        <div class="money-buttons">
+                            <button onclick="addMoney(1)">1 ฿</button>
+                            <button onclick="addMoney(5)">5 ฿</button>
+                            <button onclick="addMoney(10)">10 ฿</button>
+                            <button onclick="addMoney(20)">20 ฿</button>
+                            <button onclick="addMoney(50)">50 ฿</button>
+                            <button onclick="addMoney(100)">100 ฿</button>
+                        </div>
+                        <div class="money-display">
+                            <span>เงินที่ใส่ : <span id="inserted-money">0</span> ฿</span>
+                        </div>
+                        <button class="confirm-payment-btn" onclick="confirmPayment()" disabled>
+                            ยืนยันการชำระเงิน
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ช่องรับสินค้า -->
+        <div class="dispensing-area">
+            <div class="dispensing-slot">
+                <div class="slot-light"></div>
+                <div class="slot-door">
+                    <span>รับสินค้าที่นี่</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ข้อความแจ้งเมื่อสำเร็จ -->
+    <div id="success-modal" class="modal">
+        <div class="modal-content">
+            <h3><i class="fas fa-check-circle"></i> ชำระเงินสำเร็จ!</h3>
+            <p>กรุณารับสินค้าที่ช่องด้านล่าง</p>
+            <p id="change-amount"></p>
+            <button onclick="closeModal()">ตกลง</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
